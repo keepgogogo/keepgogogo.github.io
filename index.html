@@ -48,14 +48,14 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
           <a href="#1-首先思考如何实现文件的感染" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-首先思考如何实现文件的感染" class="headerlink" title="1.首先思考如何实现文件的感染"></a>1.首先思考如何实现文件的感染</h6>
       <p>​        在PE文件中，对函数以及内存变量的访问均基于偏移地址实现，而当病毒感染不同的HOST程序后，由于病毒代码依附到HOST程序中的位置各不相同，因此病毒随着不同HOST载入内存后，病毒中的各个变量（常量）在内存中的位置会随着HOST程序的大小不同而发生变化。</p>
 <p>​        而使用C语言编写程序时，可以看到如下图示例程序中，所有变量的偏移量由编译器在编译时确定，写死在机器码中。因此，无法使用C实现用于插入到其他可执行程序的代码，必须使用汇编实现。</p>
-<p><img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210621203057551.png" alt="image-20210621203057551"></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210621203057551.png" alt="image-20210621203057551"></p>
 <p>但是我们可以将一段已经编译好的，具有在宿主程序中运行能力的代码的机器码复制出来，将其作为viruscode，然后在后续过程中使用C语言将其嵌入到目标程序中。</p>
-<p>​    <img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001141851.png" alt="image-20210622001141851"></p>
+<p>​    <img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001141851.png" alt="image-20210622001141851"></p>
 <p>跳转到0433 执行指令E8 0000 而这正是我们viruscode的开始。</p>
-<p><img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001237832.png" alt="image-20210622001237832"></p>
-<p>而程序入口的第一条指令为4D 然后是跳转指令E9 2F 03。<img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001332710.png" alt="image-20210622001332710"></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001237832.png" alt="image-20210622001237832"></p>
+<p>而程序入口的第一条指令为4D 然后是跳转指令E9 2F 03。<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001332710.png" alt="image-20210622001332710"></p>
 <p>而这正是程序的第一行（这是COM文件的特点，没有多余的描述字段，直接在文件的开始启动跳转，并非标准的PE文件格式），因此只需设法使用C语言查找到程序的末尾的Offset，然后将其填入第3、4个字节以构造jmp指令即可。</p>
-<p><img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001418247.png" alt="image-20210622001418247"></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001418247.png" alt="image-20210622001418247"></p>
 <p>根据<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://blog.csdn.net/whatday/article/details/47172075" >jmp指令对应的机器码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>中提到的内容，当前IP为0101，而jmp指令本身占用3个字节，求得指令中填充的值表达式应为指令值=实际值-当前值-3。其中实际值为文件末尾的偏移量，但如果除去装载点的话，应当为在Winhex中获得的末尾位置333-1-3=32F，因此实现程序时，只需先获得文件末尾的偏移量，然后将其减去4后填充至被感染文件的第3、4个字节，然后将前两个字节也置为4D E9即可。</p>
 <p>然而经过思考发现，只有在简单的、由几句汇编语言实现的PE文件中通过获取文件末尾的偏移量才易于实现，而在其他程序中较难实现，即使该程序只是简单的C编写的hello world程序。</p>
 <p>而且经过思考，由于更改了文件起始的部分，那么无论把viruscode插入到哪里，都会导致原来的宿主程序不能正常运行，那么不如将viruscode放在Dos头刚刚结束的地方好了，这样的话可以将修改dos头部分的代码固定，而不是每次感染都需要重新查找和确定偏移。同时，这部分固定的代码可以成为我们的代码判断该程序是否已经被感染的标志，帮助我们实现不反复感染的功能。</p>
