@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><meta name="description" content="病毒的自我复制实验                           需要实现的目标        以C语言、汇编语言为开发工具，设计并开发一个简单的病毒，可在windows 7环境下，进行文件自我复制、感染的程序。 可以完成多个目录下的多个拷贝。 该复制程序能够扩展，允许开发或操作者对复制的次数、频率进行设定。 独自开发、独立运行。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/06/21/%E8%BD%AF%E5%AE%89%E5%AE%9E%E9%AA%8C3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="病毒的自我复制实验                           需要实现的目标        以C语言、汇编语言为开发工具，设计并开发一个简单的病毒，可在windows 7环境下，进行文件自我复制、感染的程序。 可以完成多个目录下的多个拷贝。 该复制程序能够扩展，允许开发或操作者对复制的次数、频率进行设定。 独自开发、独立运行。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/zsgkl/AppData/Roaming/Typora/typora-user-images/image-20210621203057551.png">
+<meta property="og:image" content="c:/Users/zsgkl/AppData/Roaming/Typora/typora-user-images/image-20210622001141851.png">
+<meta property="og:image" content="c:/Users/zsgkl/AppData/Roaming/Typora/typora-user-images/image-20210622001237832.png">
+<meta property="og:image" content="c:/Users/zsgkl/AppData/Roaming/Typora/typora-user-images/image-20210622001332710.png">
+<meta property="og:image" content="c:/Users/zsgkl/AppData/Roaming/Typora/typora-user-images/image-20210622001418247.png">
+<meta property="article:published_time" content="2021-06-21T11:44:30.777Z">
+<meta property="article:modified_time" content="2021-06-22T13:32:36.089Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/zsgkl/AppData/Roaming/Typora/typora-user-images/image-20210621203057551.png"><title>[ Untitled ] | Hexo</title><link ref="canonical" href="http://example.com/2021/06/21/%E8%BD%AF%E5%AE%89%E5%AE%9E%E9%AA%8C3/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":false,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner header-inner--height header-inner--bgcolor"><nav class="header-nav header-nav--sticky"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">[ Untitled ]</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-22</span></span></div></header><div class="post-body">
+        <h3 id="病毒的自我复制实验"   >
+          <a href="#病毒的自我复制实验" class="heading-link"><i class="fas fa-link"></i></a><a href="#病毒的自我复制实验" class="headerlink" title="病毒的自我复制实验"></a>病毒的自我复制实验</h3>
+      
+        <h4 id="需要实现的目标"   >
+          <a href="#需要实现的目标" class="heading-link"><i class="fas fa-link"></i></a><a href="#需要实现的目标" class="headerlink" title="需要实现的目标"></a>需要实现的目标</h4>
+      <ul>
+<li>以C语言、汇编语言为开发工具，设计并开发一个简单的病毒，可在windows 7环境下，进行文件自我复制、感染的程序。</li>
+<li>可以完成多个目录下的多个拷贝。</li>
+<li>该复制程序能够扩展，允许开发或操作者对复制的次数、频率进行设定。</li>
+<li>独自开发、独立运行。</li>
+</ul>
+
+        <h5 id="我的实验过程记录"   >
+          <a href="#我的实验过程记录" class="heading-link"><i class="fas fa-link"></i></a><a href="#我的实验过程记录" class="headerlink" title="我的实验过程记录"></a>我的实验过程记录</h5>
+      
+        <h6 id="1-首先思考如何实现文件的感染"   >
+          <a href="#1-首先思考如何实现文件的感染" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-首先思考如何实现文件的感染" class="headerlink" title="1.首先思考如何实现文件的感染"></a>1.首先思考如何实现文件的感染</h6>
+      <p>​        在PE文件中，对函数以及内存变量的访问均基于偏移地址实现，而当病毒感染不同的HOST程序后，由于病毒代码依附到HOST程序中的位置各不相同，因此病毒随着不同HOST载入内存后，病毒中的各个变量（常量）在内存中的位置会随着HOST程序的大小不同而发生变化。</p>
+<p>​        而使用C语言编写程序时，可以看到如下图示例程序中，所有变量的偏移量由编译器在编译时确定，写死在机器码中。因此，无法使用C实现用于插入到其他可执行程序的代码，必须使用汇编实现。</p>
+<p><img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210621203057551.png" alt="image-20210621203057551"></p>
+<p>但是我们可以将一段已经编译好的，具有在宿主程序中运行能力的代码的机器码复制出来，将其作为viruscode，然后在后续过程中使用C语言将其嵌入到目标程序中。</p>
+<p>​    <img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001141851.png" alt="image-20210622001141851"></p>
+<p>跳转到0433 执行指令E8 0000 而这正是我们viruscode的开始。</p>
+<p><img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001237832.png" alt="image-20210622001237832"></p>
+<p>而程序入口的第一条指令为4D 然后是跳转指令E9 2F 03。<img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001332710.png" alt="image-20210622001332710"></p>
+<p>而这正是程序的第一行（这是COM文件的特点，没有多余的描述字段，直接在文件的开始启动跳转，并非标准的PE文件格式），因此只需设法使用C语言查找到程序的末尾的Offset，然后将其填入第3、4个字节以构造jmp指令即可。</p>
+<p><img src="C:\Users\zsgkl\AppData\Roaming\Typora\typora-user-images\image-20210622001418247.png" alt="image-20210622001418247"></p>
+<p>根据<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://blog.csdn.net/whatday/article/details/47172075" >jmp指令对应的机器码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>中提到的内容，当前IP为0101，而jmp指令本身占用3个字节，求得指令中填充的值表达式应为指令值=实际值-当前值-3。其中实际值为文件末尾的偏移量，但如果除去装载点的话，应当为在Winhex中获得的末尾位置333-1-3=32F，因此实现程序时，只需先获得文件末尾的偏移量，然后将其减去4后填充至被感染文件的第3、4个字节，然后将前两个字节也置为4D E9即可。</p>
+<p>然而经过思考发现，只有在简单的、由几句汇编语言实现的PE文件中通过获取文件末尾的偏移量才易于实现，而在其他程序中较难实现，即使该程序只是简单的C编写的hello world程序。</p>
+<p>而且经过思考，由于更改了文件起始的部分，那么无论把viruscode插入到哪里，都会导致原来的宿主程序不能正常运行，那么不如将viruscode放在Dos头刚刚结束的地方好了，这样的话可以将修改dos头部分的代码固定，而不是每次感染都需要重新查找和确定偏移。同时，这部分固定的代码可以成为我们的代码判断该程序是否已经被感染的标志，帮助我们实现不反复感染的功能。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">John Doe</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2021/06/21/%E8%BD%AF%E5%AE%89%E5%AE%9E%E9%AA%8C3/">http://example.com/2021/06/21/%E8%BD%AF%E5%AE%89%E5%AE%9E%E9%AA%8C3/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/06/21/hello-world/"><span class="paginator-prev__text">Hello World</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%97%85%E6%AF%92%E7%9A%84%E8%87%AA%E6%88%91%E5%A4%8D%E5%88%B6%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">
+          病毒的自我复制实验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-number">1.1.</span> <span class="toc-text">
+          需要实现的目标</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+          我的实验过程记录</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-%E9%A6%96%E5%85%88%E6%80%9D%E8%80%83%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E7%9A%84%E6%84%9F%E6%9F%93"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">
+          1.首先思考如何实现文件的感染</span></a></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/head.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">Life begins at the end of your comfort zone.</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/keepgogogo/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">2</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2021</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>John Doe</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
