@@ -125,11 +125,38 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
           <a href="#机器数及特点" class="heading-link"><i class="fas fa-link"></i></a><a href="#机器数及特点" class="headerlink" title="机器数及特点"></a>机器数及特点</h3>
       <p>真值：符号用 “+” “-“ 表示的数据表示方法。</p>
 <p>机器数：符号数值化的数据表示方法，用0、1表示符号。</p>
-<p>三种常见的机器数：设定点数的形式为$X_0 X_1 X_2 X_3 …X_n$</p>
+
+        <h4 id="三种常见的机器数"   >
+          <a href="#三种常见的机器数" class="heading-link"><i class="fas fa-link"></i></a><a href="#三种常见的机器数" class="headerlink" title="三种常见的机器数"></a>三种常见的机器数</h4>
+      <p>设定点数的形式为<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630094741638.png" alt="image-20210630094741638"></p>
 <p>这部分的内容主要是原码、反码、补码，这三个概念和曾学过的概念并无区别。通过一些例子来体会是最好的。</p>
 <p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630093606725.png" alt="image-20210630093606725"></p>
 <p>正数的原码、反码、补码都是一样的，和真值的区别就是把前面的正负号换成符号位来表示。</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/21/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-21</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+<p>负数的原码就是符号位为1，其他不变。<strong>反码</strong>则是<strong>原码</strong>的符号位不变，其他位取反，补码则是<strong>原码</strong>的符号位不变，其他位取反后+1。</p>
+<p><strong>0</strong>的表示需要额外注意。</p>
+
+        <h4 id="反码运算"   >
+          <a href="#反码运算" class="heading-link"><i class="fas fa-link"></i></a><a href="#反码运算" class="headerlink" title="反码运算"></a>反码运算</h4>
+      <blockquote>
+<p>符号位参加运算，符号位的进位位需要加到最低位。</p>
+</blockquote>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100158592.png" alt="image-20210630100158592"></p>
+
+        <h4 id="补码的补充知识"   >
+          <a href="#补码的补充知识" class="heading-link"><i class="fas fa-link"></i></a><a href="#补码的补充知识" class="headerlink" title="补码的补充知识"></a>补码的补充知识</h4>
+      <p>模的概念： 符号位进位后所在位的权值。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100437959.png" alt="image-20210630100437959"></p>
+<p>模为2的6次方，即模为2的位数次幂，6位数，就是2的6次方。</p>
+
+        <h4 id="移码（增码）"   >
+          <a href="#移码（增码）" class="heading-link"><i class="fas fa-link"></i></a><a href="#移码（增码）" class="headerlink" title="移码（增码）"></a>移码（增码）</h4>
+      <p>移码表示浮点数的阶码，IEEE754中阶码用移码表示。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100811224.png" alt="image-20210630100811224"></p>
+<p>注意它的具体实现即可。</p>
+
+        <h3 id="定点与浮点数据表示"   >
+          <a href="#定点与浮点数据表示" class="heading-link"><i class="fas fa-link"></i></a><a href="#定点与浮点数据表示" class="headerlink" title="定点与浮点数据表示"></a>定点与浮点数据表示</h3>
+      </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/21/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-21</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
 
         <h2 id="Quick-Start"   >
           <a href="#Quick-Start" class="heading-link"><i class="fas fa-link"></i></a><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
