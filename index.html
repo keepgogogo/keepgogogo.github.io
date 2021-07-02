@@ -85,7 +85,11 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start -->
 </li>
 <li><p><strong>K</strong>是加密算法的有限集，<strong>D</strong>是解密算法的有限集</p>
 </li>
-<li><p>对任意的<strong>k</strong>属于<strong>K</strong>，有一个</p>
+<li><p>对任意的<strong>k </strong><script type="math/tex">\in</script> <strong>K</strong>，有一个加密规则（算法）<script type="math/tex">e_k \in E</script>和相应的揭秘规则（算法）<script type="math/tex">d_k \in D</script>，使得<script type="math/tex">e_k : P \rightarrow C</script>和<script type="math/tex">d_k : C \rightarrow P</script>分别为加密解密函数，满足<script type="math/tex">d_k(e_k(x))=x,这里x \in P</script>。</p>
+</li>
+<li><blockquote>
+<p>注：加密函数必须是单射函数。</p>
+</blockquote>
 </li>
 </ul>
 </li>
