@@ -28,15 +28,160 @@ var CONFIG = {
   sourcePath: {"js":"js","css":"css","images":"images"},
 };
 
-window.CONFIG = CONFIG;</script><!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Hexo</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/29/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/">密码学原理复习</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-07-02</span></span></div></header><div class="post-body"><div class="post-excerpt">
-        <h1 id="第一章-古典密码"   >
-          <a href="#第一章-古典密码" class="heading-link"><i class="fas fa-link"></i></a><a href="#第一章-古典密码" class="headerlink" title="第一章 古典密码"></a>第一章 古典密码</h1>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">Categories</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">Tags</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Hexo</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">计算机组成原理知识点总结</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-30</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h2 id="第一章-概述"   >
+          <a href="#第一章-概述" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#第一章-概述"></a> 第一章 概述</h2>
       
+
+        <h3 id="冯诺依曼结构计算机工作原理及层次结构分析"   >
+          <a href="#冯诺依曼结构计算机工作原理及层次结构分析" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#冯诺依曼结构计算机工作原理及层次结构分析"></a> 冯诺依曼结构计算机工作原理及层次结构分析</h3>
+      
+
+        <h4 id="冯诺依曼计算机的基本思想"   >
+          <a href="#冯诺依曼计算机的基本思想" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#冯诺依曼计算机的基本思想"></a> 冯诺依曼计算机的基本思想</h4>
+      
+<p><strong>存储程序</strong>和<strong>程序控制</strong>。</p>
+<p><strong>程序控制</strong>：按<strong>指令地址</strong>访问存储器并取出指令，经译码依次产生指令执行所需的控制信号，实现对计算的控制，完成指令的功能。</p>
+<p><strong>存储程序</strong>：将程序存放在计算机的存储器中。</p>
+
+        <h4 id="冯诺依曼计算机的组成硬件软件"   >
+          <a href="#冯诺依曼计算机的组成硬件软件" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#冯诺依曼计算机的组成硬件软件"></a> 冯诺依曼计算机的组成（硬件+软件）</h4>
+      
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629190751139.png" alt="image-20210629190751139" /></p>
+<p>硬件的三个主要部分，<strong>主机</strong>，<strong>外设</strong>，<strong>总线</strong>。</p>
+<p>主机：<strong>CPU</strong>和<strong>内存</strong>。<strong>CPU</strong>由<strong>运算器</strong>和<strong>控制器</strong>构成，运算器即用于算数运算如加减乘除、逻辑运算如与或非移位，控制器用于产生指令执行过程所需要的所有控制信号，控制相关功能部件执行相应操作。<strong>内存</strong>用于存储源程序、原数据或运算中间结果。</p>
+<p>外设：包括输入设备、输出设备和外存储器，输入输出设备用于外部数据的输入输出，如从键盘输入数据，向显示器输出数据。外存储器同样用于存储程序本身以及数据。</p>
+<p>总线：包括<strong>地址线</strong>、<strong>数据线</strong>和<strong>控制线</strong>。</p>
+
+        <h3 id="计算机系统性能评价"   >
+          <a href="#计算机系统性能评价" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#计算机系统性能评价"></a> 计算机系统性能评价</h3>
+      
+
+        <h4 id="机器字长非时间指标"   >
+          <a href="#机器字长非时间指标" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#机器字长非时间指标"></a> 机器字长（非时间指标）</h4>
+      
+<p><strong>机器字长</strong>指机器一次能处理的二进制位数。</p>
+<ul>
+<li>由加法器、寄存器的位数决定。</li>
+<li>一般与内部寄存器的位数相等。</li>
+<li>字长越长，表示数据的范围就越大，精确度越高。</li>
+<li>目前常见的有32位和64位字长。</li>
+</ul>
+
+        <h4 id="总线宽度非时间指标"   >
+          <a href="#总线宽度非时间指标" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#总线宽度非时间指标"></a> 总线宽度（非时间指标）</h4>
+      
+<p><strong>总线宽度</strong>指数据总线一次能并行传送的最大信息的位数。</p>
+<ul>
+<li>一般指运算器与存储器之间的数据总线位数。</li>
+<li>有些计算机内部与外部数据总线宽度不一样。</li>
+</ul>
+
+        <h4 id="主存容量与存储带宽非时间指标"   >
+          <a href="#主存容量与存储带宽非时间指标" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#主存容量与存储带宽非时间指标"></a> 主存容量与存储带宽（非时间指标）</h4>
+      
+<p><strong>主存容量</strong>指一台计算主存所包含的存储单元总数。</p>
+<p><strong>存储带宽</strong>指单位时间内与主存交换的二进制信息量，常用单位B/s（字节/秒）（影响存储带宽的指标包括数据位宽和数据传输速率）。</p>
+
+        <h4 id="时间指标"   >
+          <a href="#时间指标" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#时间指标"></a> 时间指标</h4>
+      
+<p><strong>主频f</strong>、<strong>时钟周期T</strong></p>
+<p>f与T互为倒数，f越高，T就越小（ f = 100 MHz 时 T = 10 ns ，f = 1 GHz 时 T = 1 ns）。</p>
+<p><strong>外频</strong>、<strong>倍频</strong></p>
+<p><strong>外频</strong>指CPU（内存）与主板之间同步的时钟频率（系统总线的工作频率）。</p>
+<p><strong>倍频</strong>指CPU主频与外频之间的倍数。</p>
+<ul>
+<li>
+<p>主频 = 外频 x 倍频</p>
+<blockquote>
+<p>如： Pentium 4 主频为2.4 GHz =2400 MHz = 133 MHz（外频） x 18 （倍频）</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>CPI</strong>(Clock cycles Per Instruction)</p>
+<p>执行一条指令（平均）需要的时钟周期数（即T周期的个数）。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629204054461.png" alt="image-20210629204054461" /></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629204456085.png" alt="image-20210629204456085" /></p>
+<p><strong>MIPS</strong>(Million Instructions Per Second)</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629204815316.png" alt="image-20210629204815316" /></p>
+<p><strong>该公式十分重要，一定要理解并牢记。</strong></p>
+<p>注意CPI的计算公式。</p>
+<p><strong>CPU时间</strong></p>
+<p>CPU时间=程序中所有指令的时钟周期数之和 x T</p>
+<p>​				=程序中所有指令的时钟周期数之和 / f</p>
+<p>​				也可以理解为纯指令的执行时间</p>
+<p><strong>注意</strong>与执行一段程序所需的时间进行区分（CPU时间+I/O时间+存储访问时间+各类排队时延等）</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629205422302.png" alt="image-20210629205422302" /></p>
+<p>图片中第二行红字的描述有些问题，<s>程序的执行时间</s>，应该是指令的执行时间，也就是CPU时间。</p>
+<p>上面的两条公式根据两个数值的意义来记忆会更加方便。CPI即是执行一条指令平均需要的周期数，那么它乘上总指令的条数和周期时间，就能得到执行完所有指令需要的时间，也即CPU时间。而MIPS是每执行一百万条指令需要的时间，这就更好理解了。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210308838.png" alt="image-20210629210308838" /></p>
+<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210408093.png" alt="image-20210629210408093" style="zoom:80%;" />
+
+        <h3 id="一部分作业题"   >
+          <a href="#一部分作业题" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#一部分作业题"></a> 一部分作业题</h3>
+      
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210525077.png" alt="image-20210629210525077" /></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210532202.png" alt="image-20210629210532202" /></p>
+<p>关于如何优化程序的内容，关注题目的最后一题的答案：</p>
+<blockquote>
+<p>优化程序应当提高CPI较小指令所占比例，降低CPI较大指令所占比例</p>
+</blockquote>
+
+        <h2 id="第二章-数据表示"   >
+          <a href="#第二章-数据表示" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#第二章-数据表示"></a> 第二章 数据表示</h2>
+      
+
+        <h3 id="机器数及特点"   >
+          <a href="#机器数及特点" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#机器数及特点"></a> 机器数及特点</h3>
+      
+<p>真值：符号用 “+” “-” 表示的数据表示方法。</p>
+<p>机器数：符号数值化的数据表示方法，用0、1表示符号。</p>
+
+        <h4 id="三种常见的机器数"   >
+          <a href="#三种常见的机器数" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#三种常见的机器数"></a> 三种常见的机器数</h4>
+      
+<p>设定点数的形式为<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630094741638.png" alt="image-20210630094741638" /></p>
+<p>这部分的内容主要是原码、反码、补码，这三个概念和曾学过的概念并无区别。通过一些例子来体会是最好的。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630093606725.png" alt="image-20210630093606725" /></p>
+<p>正数的原码、反码、补码都是一样的，和真值的区别就是把前面的正负号换成符号位来表示。</p>
+<p>负数的原码就是符号位为1，其他不变。<strong>反码</strong>则是<strong>原码</strong>的符号位不变，其他位取反，补码则是<strong>原码</strong>的符号位不变，其他位取反后+1。</p>
+<p><strong>0</strong>的表示需要额外注意。</p>
+
+        <h4 id="反码运算"   >
+          <a href="#反码运算" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#反码运算"></a> 反码运算</h4>
+      
+<blockquote>
+<p>符号位参加运算，符号位的进位位需要加到最低位。</p>
+</blockquote>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100158592.png" alt="image-20210630100158592" /></p>
+
+        <h4 id="补码的补充知识"   >
+          <a href="#补码的补充知识" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#补码的补充知识"></a> 补码的补充知识</h4>
+      
+<p>模的概念： 符号位进位后所在位的权值。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100437959.png" alt="image-20210630100437959" /></p>
+<p>模为2的6次方，即模为2的位数次幂，6位数，就是2的6次方。</p>
+
+        <h4 id="移码增码"   >
+          <a href="#移码增码" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#移码增码"></a> 移码（增码）</h4>
+      
+<p>移码表示浮点数的阶码，IEEE754中阶码用移码表示。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100811224.png" alt="image-20210630100811224" /></p>
+<p>注意它的具体实现即可。</p>
+
+        <h3 id="定点与浮点数据表示"   >
+          <a href="#定点与浮点数据表示" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#定点与浮点数据表示"></a> 定点与浮点数据表示</h3>
+      
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/29/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%8E%9F%E7%90%86%E5%A4%8D%E4%B9%A0/">密码学原理复习</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-07-02</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h1 id="第一章-古典密码"   >
+          <a href="#第一章-古典密码" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#第一章-古典密码"></a> 第一章 古典密码</h1>
+      
+
         <h3 id="密码学的重要性和意义"   >
-          <a href="#密码学的重要性和意义" class="heading-link"><i class="fas fa-link"></i></a><a href="#密码学的重要性和意义" class="headerlink" title="密码学的重要性和意义"></a>密码学的重要性和意义</h3>
-      <p>密码学是提供安全服务的关键理论和技术</p>
+          <a href="#密码学的重要性和意义" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#密码学的重要性和意义"></a> 密码学的重要性和意义</h3>
+      
+<p>密码学是提供安全服务的关键理论和技术</p>
 <ul>
 <li>数据机密性（Confidentiality）</li>
 <li>数据完整性（Integrity）</li>
@@ -46,14 +191,18 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start -->
 </ul>
 
         <h3 id="基本术语和概念"   >
-          <a href="#基本术语和概念" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本术语和概念" class="headerlink" title="基本术语和概念"></a>基本术语和概念</h3>
+          <a href="#基本术语和概念" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#基本术语和概念"></a> 基本术语和概念</h3>
       
+
         <h4 id="基本术语"   >
-          <a href="#基本术语" class="heading-link"><i class="fas fa-link"></i></a><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h4>
-      <ul>
-<li><p>按照明文的处理方法可分为分组密码（block cipher）和流密码（stream cipher）<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210702111707196.png" alt="image-20210702111707196"></p>
+          <a href="#基本术语" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#基本术语"></a> 基本术语</h4>
+      
+<ul>
+<li>
+<p>按照明文的处理方法可分为分组密码（block cipher）和流密码（stream cipher）<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210702111707196.png" alt="image-20210702111707196" /></p>
 </li>
-<li><p>按照保密的条件可分为受限制的（Restriced）算法和基于密钥（key-based）的算法。</p>
+<li>
+<p>按照保密的条件可分为受限制的（Restriced）算法和基于密钥（key-based）的算法。</p>
 <ul>
 <li>受限制的算法：安全性基于<strong>算法的保密性</strong>。</li>
 <li>Kerckhoffs假设：即使密码系统的任何细节已为人悉知，只要密匙（key，又称密钥或秘钥）未泄漏，它也应是安全的。这就是基于密钥的算法的原则之一。</li>
@@ -63,195 +212,85 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start -->
 </ul>
 
         <h4 id="加解密的通信模型"   >
-          <a href="#加解密的通信模型" class="heading-link"><i class="fas fa-link"></i></a><a href="#加解密的通信模型" class="headerlink" title="加解密的通信模型"></a>加解密的通信模型</h4>
-      <p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210702113558700.png" alt="image-20210702113558700"></p>
+          <a href="#加解密的通信模型" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#加解密的通信模型"></a> 加解密的通信模型</h4>
+      
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210702113558700.png" alt="image-20210702113558700" /></p>
 <p>上面这张图展示的内容被称作加解密通信模型，实际上描述的并不完全正确，应该说这是对称密码加密通信模型。</p>
 
         <h4 id="非对称密码加密通信模型"   >
-          <a href="#非对称密码加密通信模型" class="heading-link"><i class="fas fa-link"></i></a><a href="#非对称密码加密通信模型" class="headerlink" title="非对称密码加密通信模型"></a>非对称密码加密通信模型</h4>
-      <p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210702115015145.png" alt="image-20210702115015145"></p>
+          <a href="#非对称密码加密通信模型" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#非对称密码加密通信模型"></a> 非对称密码加密通信模型</h4>
+      
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210702115015145.png" alt="image-20210702115015145" /></p>
 
         <h4 id="密码体制的定义"   >
-          <a href="#密码体制的定义" class="heading-link"><i class="fas fa-link"></i></a><a href="#密码体制的定义" class="headerlink" title="密码体制的定义"></a>密码体制的定义</h4>
-      <p>密码体制（密码系统）的数学描述</p>
+          <a href="#密码体制的定义" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#密码体制的定义"></a> 密码体制的定义</h4>
+      
+<p>密码体制（密码系统）的数学描述</p>
 <ul>
-<li><p>它是一个五元组（P , C , K , E , D)，满足条件：</p>
+<li>
+<p>它是一个五元组（P , C , K , E , D)，满足条件：</p>
 <ul>
-<li><p><strong>P</strong>是可能明文的有限集；（明文空间）</p>
+<li>
+<p><strong>P</strong>是可能明文的有限集；（明文空间）</p>
 </li>
-<li><p><strong>C</strong>是可能密文的有限集；（密文空间）</p>
+<li>
+<p><strong>C</strong>是可能密文的有限集；（密文空间）</p>
 </li>
-<li><p><strong>K</strong>是一切可能密钥构成的有限集；（密钥空间）</p>
+<li>
+<p><strong>K</strong>是一切可能密钥构成的有限集；（密钥空间）</p>
 </li>
-<li><p><strong>K</strong>是加密算法的有限集，<strong>D</strong>是解密算法的有限集</p>
+<li>
+<p><strong>K</strong>是加密算法的有限集，<strong>D</strong>是解密算法的有限集</p>
 </li>
-<li><p>对任意的<strong>k </strong><script type="math/tex">\in</script> <strong>K</strong>，有一个加密规则（算法）<script type="math/tex">e_k \in E</script>和相应的揭秘规则（算法）<script type="math/tex">d_k \in D</script>，使得<script type="math/tex">e_k : P \rightarrow C</script>和<script type="math/tex">d_k : C \rightarrow P</script>分别为加密解密函数，满足<script type="math/tex">d_k(e_k(x))=x,这里x \in P</script>。</p>
+<li>
+<p>对任意的**k **$$ \in $$ <strong>K</strong>，有一个加密规则（算法）$$ e_k \in E  $$和相应的揭秘规则（算法）$$ d_k \in D $$，使得$$ e_k : P \rightarrow C $$和$$ d_k : C \rightarrow P $$分别为加密解密函数，满足$$ d_k(e_k(x))=x,这里x \in P $$。</p>
 </li>
-<li><blockquote>
+<li>
+<blockquote>
 <p>注：加密函数必须是单射函数。</p>
 </blockquote>
 </li>
 </ul>
 </li>
 </ul>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/">计算机组成原理知识点总结</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-30</span></span></div></header><div class="post-body"><div class="post-excerpt">
-        <h2 id="第一章-概述"   >
-          <a href="#第一章-概述" class="heading-link"><i class="fas fa-link"></i></a><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/21/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-21</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+
+        <h2 id="quick-start"   >
+          <a href="#quick-start" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
       
-        <h3 id="冯诺依曼结构计算机工作原理及层次结构分析"   >
-          <a href="#冯诺依曼结构计算机工作原理及层次结构分析" class="heading-link"><i class="fas fa-link"></i></a><a href="#冯诺依曼结构计算机工作原理及层次结构分析" class="headerlink" title="冯诺依曼结构计算机工作原理及层次结构分析"></a>冯诺依曼结构计算机工作原理及层次结构分析</h3>
+
+        <h3 id="create-a-new-post"   >
+          <a href="#create-a-new-post" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
       
-        <h4 id="冯诺依曼计算机的基本思想"   >
-          <a href="#冯诺依曼计算机的基本思想" class="heading-link"><i class="fas fa-link"></i></a><a href="#冯诺依曼计算机的基本思想" class="headerlink" title="冯诺依曼计算机的基本思想"></a>冯诺依曼计算机的基本思想</h4>
-      <p><strong>存储程序</strong>和<strong>程序控制</strong>。</p>
-<p><strong>程序控制</strong>：按<strong>指令地址</strong>访问存储器并取出指令，经译码依次产生指令执行所需的控制信号，实现对计算的控制，完成指令的功能。</p>
-<p><strong>存储程序</strong>：将程序存放在计算机的存储器中。</p>
-
-        <h4 id="冯诺依曼计算机的组成（硬件-软件）"   >
-          <a href="#冯诺依曼计算机的组成（硬件-软件）" class="heading-link"><i class="fas fa-link"></i></a><a href="#冯诺依曼计算机的组成（硬件-软件）" class="headerlink" title="冯诺依曼计算机的组成（硬件+软件）"></a>冯诺依曼计算机的组成（硬件+软件）</h4>
-      <p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629190751139.png" alt="image-20210629190751139"></p>
-<p>硬件的三个主要部分，<strong>主机</strong>，<strong>外设</strong>，<strong>总线</strong>。</p>
-<p>主机：<strong>CPU</strong>和<strong>内存</strong>。<strong>CPU</strong>由<strong>运算器</strong>和<strong>控制器</strong>构成，运算器即用于算数运算如加减乘除、逻辑运算如与或非移位，控制器用于产生指令执行过程所需要的所有控制信号，控制相关功能部件执行相应操作。<strong>内存</strong>用于存储源程序、原数据或运算中间结果。</p>
-<p>外设：包括输入设备、输出设备和外存储器，输入输出设备用于外部数据的输入输出，如从键盘输入数据，向显示器输出数据。外存储器同样用于存储程序本身以及数据。</p>
-<p>总线：包括<strong>地址线</strong>、<strong>数据线</strong>和<strong>控制线</strong>。</p>
-
-        <h3 id="计算机系统性能评价"   >
-          <a href="#计算机系统性能评价" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机系统性能评价" class="headerlink" title="计算机系统性能评价"></a>计算机系统性能评价</h3>
-      
-        <h4 id="机器字长（非时间指标）"   >
-          <a href="#机器字长（非时间指标）" class="heading-link"><i class="fas fa-link"></i></a><a href="#机器字长（非时间指标）" class="headerlink" title="机器字长（非时间指标）"></a>机器字长（非时间指标）</h4>
-      <p><strong>机器字长</strong>指机器一次能处理的二进制位数。</p>
-<ul>
-<li>由加法器、寄存器的位数决定。</li>
-<li>一般与内部寄存器的位数相等。</li>
-<li>字长越长，表示数据的范围就越大，精确度越高。</li>
-<li>目前常见的有32位和64位字长。</li>
-</ul>
-
-        <h4 id="总线宽度（非时间指标）"   >
-          <a href="#总线宽度（非时间指标）" class="heading-link"><i class="fas fa-link"></i></a><a href="#总线宽度（非时间指标）" class="headerlink" title="总线宽度（非时间指标）"></a>总线宽度（非时间指标）</h4>
-      <p><strong>总线宽度</strong>指数据总线一次能并行传送的最大信息的位数。</p>
-<ul>
-<li>一般指运算器与存储器之间的数据总线位数。</li>
-<li>有些计算机内部与外部数据总线宽度不一样。</li>
-</ul>
-
-        <h4 id="主存容量与存储带宽（非时间指标）"   >
-          <a href="#主存容量与存储带宽（非时间指标）" class="heading-link"><i class="fas fa-link"></i></a><a href="#主存容量与存储带宽（非时间指标）" class="headerlink" title="主存容量与存储带宽（非时间指标）"></a>主存容量与存储带宽（非时间指标）</h4>
-      <p><strong>主存容量</strong>指一台计算主存所包含的存储单元总数。</p>
-<p><strong>存储带宽</strong>指单位时间内与主存交换的二进制信息量，常用单位B/s（字节/秒）（影响存储带宽的指标包括数据位宽和数据传输速率）。</p>
-
-        <h4 id="时间指标"   >
-          <a href="#时间指标" class="heading-link"><i class="fas fa-link"></i></a><a href="#时间指标" class="headerlink" title="时间指标"></a>时间指标</h4>
-      <p><strong>主频f</strong>、<strong>时钟周期T</strong></p>
-<p>f与T互为倒数，f越高，T就越小（ f = 100 MHz 时 T = 10 ns ，f = 1 GHz 时 T = 1 ns）。</p>
-<p><strong>外频</strong>、<strong>倍频</strong></p>
-<p><strong>外频</strong>指CPU（内存）与主板之间同步的时钟频率（系统总线的工作频率）。</p>
-<p><strong>倍频</strong>指CPU主频与外频之间的倍数。</p>
-<ul>
-<li><p>主频 = 外频 x 倍频</p>
-<blockquote>
-<p>如： Pentium 4 主频为2.4 GHz =2400 MHz = 133 MHz（外频） x 18 （倍频） </p>
-</blockquote>
-</li>
-</ul>
-<p><strong>CPI</strong>(Clock cycles Per Instruction)</p>
-<p>执行一条指令（平均）需要的时钟周期数（即T周期的个数）。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629204054461.png" alt="image-20210629204054461"></p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629204456085.png" alt="image-20210629204456085"></p>
-<p><strong>MIPS</strong>(Million Instructions Per Second)</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629204815316.png" alt="image-20210629204815316"></p>
-<p><strong>该公式十分重要，一定要理解并牢记。</strong></p>
-<p>注意CPI的计算公式。</p>
-<p><strong>CPU时间</strong></p>
-<p>CPU时间=程序中所有指令的时钟周期数之和 x T</p>
-<p>​                =程序中所有指令的时钟周期数之和 / f</p>
-<p>​                也可以理解为纯指令的执行时间</p>
-<p><strong>注意</strong>与执行一段程序所需的时间进行区分（CPU时间+I/O时间+存储访问时间+各类排队时延等）</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629205422302.png" alt="image-20210629205422302"></p>
-<p>图片中第二行红字的描述有些问题，<del>程序的执行时间</del>，应该是指令的执行时间，也就是CPU时间。</p>
-<p>上面的两条公式根据两个数值的意义来记忆会更加方便。CPI即是执行一条指令平均需要的周期数，那么它乘上总指令的条数和周期时间，就能得到执行完所有指令需要的时间，也即CPU时间。而MIPS是每执行一百万条指令需要的时间，这就更好理解了。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210308838.png" alt="image-20210629210308838"></p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210408093.png" alt="image-20210629210408093" style="zoom:80%;" /></p>
-
-        <h3 id="一部分作业题"   >
-          <a href="#一部分作业题" class="heading-link"><i class="fas fa-link"></i></a><a href="#一部分作业题" class="headerlink" title="一部分作业题"></a>一部分作业题</h3>
-      <p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210525077.png" alt="image-20210629210525077"></p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210629210532202.png" alt="image-20210629210532202"></p>
-<p>关于如何优化程序的内容，关注题目的最后一题的答案：</p>
-<blockquote>
-<p>优化程序应当提高CPI较小指令所占比例，降低CPI较大指令所占比例</p>
-</blockquote>
-
-        <h2 id="第二章-数据表示"   >
-          <a href="#第二章-数据表示" class="heading-link"><i class="fas fa-link"></i></a><a href="#第二章-数据表示" class="headerlink" title="第二章 数据表示"></a>第二章 数据表示</h2>
-      
-        <h3 id="机器数及特点"   >
-          <a href="#机器数及特点" class="heading-link"><i class="fas fa-link"></i></a><a href="#机器数及特点" class="headerlink" title="机器数及特点"></a>机器数及特点</h3>
-      <p>真值：符号用 “+” “-“ 表示的数据表示方法。</p>
-<p>机器数：符号数值化的数据表示方法，用0、1表示符号。</p>
-
-        <h4 id="三种常见的机器数"   >
-          <a href="#三种常见的机器数" class="heading-link"><i class="fas fa-link"></i></a><a href="#三种常见的机器数" class="headerlink" title="三种常见的机器数"></a>三种常见的机器数</h4>
-      <p>设定点数的形式为<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630094741638.png" alt="image-20210630094741638"></p>
-<p>这部分的内容主要是原码、反码、补码，这三个概念和曾学过的概念并无区别。通过一些例子来体会是最好的。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630093606725.png" alt="image-20210630093606725"></p>
-<p>正数的原码、反码、补码都是一样的，和真值的区别就是把前面的正负号换成符号位来表示。</p>
-<p>负数的原码就是符号位为1，其他不变。<strong>反码</strong>则是<strong>原码</strong>的符号位不变，其他位取反，补码则是<strong>原码</strong>的符号位不变，其他位取反后+1。</p>
-<p><strong>0</strong>的表示需要额外注意。</p>
-
-        <h4 id="反码运算"   >
-          <a href="#反码运算" class="heading-link"><i class="fas fa-link"></i></a><a href="#反码运算" class="headerlink" title="反码运算"></a>反码运算</h4>
-      <blockquote>
-<p>符号位参加运算，符号位的进位位需要加到最低位。</p>
-</blockquote>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100158592.png" alt="image-20210630100158592"></p>
-
-        <h4 id="补码的补充知识"   >
-          <a href="#补码的补充知识" class="heading-link"><i class="fas fa-link"></i></a><a href="#补码的补充知识" class="headerlink" title="补码的补充知识"></a>补码的补充知识</h4>
-      <p>模的概念： 符号位进位后所在位的权值。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100437959.png" alt="image-20210630100437959"></p>
-<p>模为2的6次方，即模为2的位数次幂，6位数，就是2的6次方。</p>
-
-        <h4 id="移码（增码）"   >
-          <a href="#移码（增码）" class="heading-link"><i class="fas fa-link"></i></a><a href="#移码（增码）" class="headerlink" title="移码（增码）"></a>移码（增码）</h4>
-      <p>移码表示浮点数的阶码，IEEE754中阶码用移码表示。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210630100811224.png" alt="image-20210630100811224"></p>
-<p>注意它的具体实现即可。</p>
-
-        <h3 id="定点与浮点数据表示"   >
-          <a href="#定点与浮点数据表示" class="heading-link"><i class="fas fa-link"></i></a><a href="#定点与浮点数据表示" class="headerlink" title="定点与浮点数据表示"></a>定点与浮点数据表示</h3>
-      </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/21/hello-world/">Hello World</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-21</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Welcome to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
-
-        <h2 id="Quick-Start"   >
-          <a href="#Quick-Start" class="heading-link"><i class="fas fa-link"></i></a><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
-      
-        <h3 id="Create-a-new-post"   >
-          <a href="#Create-a-new-post" class="heading-link"><i class="fas fa-link"></i></a><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html" >Writing</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <h3 id="Run-server"   >
-          <a href="#Run-server" class="heading-link"><i class="fas fa-link"></i></a><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></div></figure>
+        <h3 id="run-server"   >
+          <a href="#run-server" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/server.html" >Server</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <h3 id="Generate-static-files"   >
-          <a href="#Generate-static-files" class="heading-link"><i class="fas fa-link"></i></a><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></div></figure>
+        <h3 id="generate-static-files"   >
+          <a href="#generate-static-files" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html" >Generating</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <h3 id="Deploy-to-remote-sites"   >
-          <a href="#Deploy-to-remote-sites" class="heading-link"><i class="fas fa-link"></i></a><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3>
-      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></div></figure>
+        <h3 id="deploy-to-remote-sites"   >
+          <a href="#deploy-to-remote-sites" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
+      
+<figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></div></figure>
 <p>More info: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html" >Deployment</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2021/06/20/%E8%BD%AF%E5%AE%89%E5%AE%9E%E9%AA%8C3/">软安实验3</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2021-06-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2021-06-20</span></span></div></header><div class="post-body"><div class="post-excerpt">
         <h3 id="病毒的自我复制实验"   >
-          <a href="#病毒的自我复制实验" class="heading-link"><i class="fas fa-link"></i></a><a href="#病毒的自我复制实验" class="headerlink" title="病毒的自我复制实验"></a>病毒的自我复制实验</h3>
+          <a href="#病毒的自我复制实验" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#病毒的自我复制实验"></a> 病毒的自我复制实验</h3>
       
+
         <h4 id="需要实现的目标"   >
-          <a href="#需要实现的目标" class="heading-link"><i class="fas fa-link"></i></a><a href="#需要实现的目标" class="headerlink" title="需要实现的目标"></a>需要实现的目标</h4>
-      <ul>
+          <a href="#需要实现的目标" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#需要实现的目标"></a> 需要实现的目标</h4>
+      
+<ul>
 <li>以C语言、汇编语言为开发工具，设计并开发一个简单的病毒，可在windows 7环境下，进行文件自我复制、感染的程序。</li>
 <li>可以完成多个目录下的多个拷贝。</li>
 <li>该复制程序能够扩展，允许开发或操作者对复制的次数、频率进行设定。</li>
@@ -259,20 +298,22 @@ window.CONFIG = CONFIG;</script><!-- hexo injector head_end start -->
 </ul>
 
         <h5 id="我的实验过程记录"   >
-          <a href="#我的实验过程记录" class="heading-link"><i class="fas fa-link"></i></a><a href="#我的实验过程记录" class="headerlink" title="我的实验过程记录"></a>我的实验过程记录</h5>
+          <a href="#我的实验过程记录" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#我的实验过程记录"></a> 我的实验过程记录</h5>
       
-        <h6 id="1-首先思考如何实现文件的感染"   >
-          <a href="#1-首先思考如何实现文件的感染" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-首先思考如何实现文件的感染" class="headerlink" title="1.首先思考如何实现文件的感染"></a>1.首先思考如何实现文件的感染</h6>
-      <p>​        在PE文件中，对函数以及内存变量的访问均基于偏移地址实现，而当病毒感染不同的HOST程序后，由于病毒代码依附到HOST程序中的位置各不相同，因此病毒随着不同HOST载入内存后，病毒中的各个变量（常量）在内存中的位置会随着HOST程序的大小不同而发生变化。</p>
-<p>​        而使用C语言编写程序时，可以看到如下图示例程序中，所有变量的偏移量由编译器在编译时确定，写死在机器码中。因此，无法使用C实现用于插入到其他可执行程序的代码，必须使用汇编实现。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210621203057551.png" alt="image-20210621203057551"></p>
+
+        <h6 id="1首先思考如何实现文件的感染"   >
+          <a href="#1首先思考如何实现文件的感染" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#1首先思考如何实现文件的感染"></a> 1.首先思考如何实现文件的感染</h6>
+      
+<p>​		在PE文件中，对函数以及内存变量的访问均基于偏移地址实现，而当病毒感染不同的HOST程序后，由于病毒代码依附到HOST程序中的位置各不相同，因此病毒随着不同HOST载入内存后，病毒中的各个变量（常量）在内存中的位置会随着HOST程序的大小不同而发生变化。</p>
+<p>​		而使用C语言编写程序时，可以看到如下图示例程序中，所有变量的偏移量由编译器在编译时确定，写死在机器码中。因此，无法使用C实现用于插入到其他可执行程序的代码，必须使用汇编实现。</p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210621203057551.png" alt="image-20210621203057551" /></p>
 <p>但是我们可以将一段已经编译好的，具有在宿主程序中运行能力的代码的机器码复制出来，将其作为viruscode，然后在后续过程中使用C语言将其嵌入到目标程序中。</p>
-<p>​    <img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001141851.png" alt="image-20210622001141851"></p>
+<p>​	<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001141851.png" alt="image-20210622001141851" /></p>
 <p>跳转到0433 执行指令E8 0000 而这正是我们viruscode的开始。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001237832.png" alt="image-20210622001237832"></p>
-<p>而程序入口的第一条指令为4D 然后是跳转指令E9 2F 03。<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001332710.png" alt="image-20210622001332710"></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001237832.png" alt="image-20210622001237832" /></p>
+<p>而程序入口的第一条指令为4D 然后是跳转指令E9 2F 03。<img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001332710.png" alt="image-20210622001332710" /></p>
 <p>而这正是程序的第一行（这是COM文件的特点，没有多余的描述字段，直接在文件的开始启动跳转，并非标准的PE文件格式），因此只需设法使用C语言查找到程序的末尾的Offset，然后将其填入第3、4个字节以构造jmp指令即可。</p>
-<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001418247.png" alt="image-20210622001418247"></p>
+<p><img src="http://tl328n64r150-typora-md.oss-cn-hangzhou.aliyuncs.com/img/image-20210622001418247.png" alt="image-20210622001418247" /></p>
 <p>根据<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://blog.csdn.net/whatday/article/details/47172075" >jmp指令对应的机器码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>中提到的内容，当前IP为0101，而jmp指令本身占用3个字节，求得指令中填充的值表达式应为指令值=实际值-当前值-3。其中实际值为文件末尾的偏移量，但如果除去装载点的话，应当为在Winhex中获得的末尾位置333-1-3=32F，因此实现程序时，只需先获得文件末尾的偏移量，然后将其减去4后填充至被感染文件的第3、4个字节，然后将前两个字节也置为4D E9即可。</p>
 <p>然而经过思考发现，只有在简单的、由几句汇编语言实现的PE文件中通过获取文件末尾的偏移量才易于实现，而在其他程序中较难实现，即使该程序只是简单的C编写的hello world程序。</p>
 <p>而且经过思考，由于更改了文件起始的部分，那么无论把viruscode插入到哪里，都会导致原来的宿主程序不能正常运行，那么不如将viruscode放在Dos头刚刚结束的地方好了，这样的话可以将修改dos头部分的代码固定，而不是每次感染都需要重新查找和确定偏移。同时，这部分固定的代码可以成为我们的代码判断该程序是否已经被感染的标志，帮助我们实现不反复感染的功能。</p>
