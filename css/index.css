@@ -2429,12 +2429,12 @@ body::after {
   font-size: 0.9em;
   color: #999;
 }
-@media (min-width: 1470px) {
+@media (min-width: 1570px) {
   .header-nav-inner {
-    width: 1470px;
+    width: 1570px;
   }
   .main-inner {
-    width: 1470px;
+    width: 1570px;
   }
 }
 @media (min-width: 991.98px) {
