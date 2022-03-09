@@ -680,7 +680,7 @@ body::after {
   font-size: 16px;
 }
 .content-wrap {
-  width: calc(100% - 330px);
+  width: calc(100% - 430px);
   float: right;
 }
 .content-wrap--noside {
@@ -968,7 +968,7 @@ body::after {
   padding: 1rem 2rem;
   background-color: var(--color-card);
   padding: 1rem;
-  width: 300px;
+  width: 400px;
   font-size: 16px;
 }
 .sidebar--sticky {
@@ -985,7 +985,7 @@ body::after {
   display: none;
 }
 .sidebar-wrap {
-  width: 300px;
+  width: 400px;
   float: left;
 }
 .sidebar-nav {
@@ -2429,12 +2429,12 @@ body::after {
   font-size: 0.9em;
   color: #999;
 }
-@media (min-width: 1570px) {
+@media (min-width: 1670px) {
   .header-nav-inner {
-    width: 1570px;
+    width: 1670px;
   }
   .main-inner {
-    width: 1570px;
+    width: 1670px;
   }
 }
 @media (min-width: 991.98px) {
