@@ -6,9 +6,10 @@
 <meta property="og:description" content="背景知识                             Cross Language Code Clone （跨语言代码克隆）          跨语言，即跨编程语言   代码克隆，也称作重复代码或者相似代码，通俗的来讲，就是将别处具有当前所需功能的代码挪过来使用。我们平时在自己编写的程序中借鉴他人的代码就类似于这一过程。参见代码克隆检测研究进展">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-08T13:30:43.000Z">
-<meta property="article:modified_time" content="2022-03-10T02:22:51.875Z">
+<meta property="article:modified_time" content="2022-03-10T14:36:42.440Z">
 <meta property="article:author" content="keepgogogo">
-<meta property="article:tag" content="DNN Detection">
+<meta property="article:tag" content="DNN">
+<meta property="article:tag" content="Cross Language Code Clone">
 <meta name="twitter:card" content="summary"><title>CLCDSA阅读笔记 | keepgogogo's blogs</title><link ref="canonical" href="http://example.com/2022/03/08/CLCDSA%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
@@ -104,7 +105,79 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 </li>
 </ol>
 <p>这也导致LICCA在实际的应用场景中很难应用。</p>
-</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">keepgogogo</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2022/03/08/CLCDSA%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">http://example.com/2022/03/08/CLCDSA%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/DNN-Detection/">DNN Detection</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/11/21/%E4%BA%92%E8%81%94%E7%BD%91-%E5%A4%A7%E8%B5%9B%E8%B0%83%E7%A0%94/"><span class="paginator-prev__text">互联网+赛事调研</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-text">
+
+        <h2 id="clcdsa-propose"   >
+          <a href="#clcdsa-propose" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#clcdsa-propose"></a> CLCDSA propose</h2>
+      
+<ol>
+<li>
+<p>不需要中间表示（analyzing source codes without requirement of intermediate representations or restrictions）</p>
+</li>
+<li>
+<p>通过9个语法特征来检测代码克隆（detect cross language clones by analyzing the similarity of 9 syntactic source code features）</p>
+</li>
+<li>
+<p>动态检测代码不需要预置知识（detect clone on the fly without having any predefined knowledge）</p>
+</li>
+<li>
+<p>基于API调用相似性的过滤器（this action filter is designed based on API call similarity used in two different code fragments across different progeamming languages)</p>
+</li>
+</ol>
+
+        <h1 id="section-ii-clcdsa-designation"   >
+          <a href="#section-ii-clcdsa-designation" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#section-ii-clcdsa-designation"></a> Section II CLCDSA designation</h1>
+      
+
+        <h2 id="a-feature-selection"   >
+          <a href="#a-feature-selection" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#a-feature-selection"></a> A. Feature Selection</h2>
+      
+<p>Features chosen to work for detecting code clone</p>
+<ul>
+<li>
+<p>声明的变量个数（Number of Variables Declared）</p>
+</li>
+<li>
+<p>运算符的总数(Total Number of Operators)</p>
+</li>
+<li>
+<p>参数的个数(Number of Argument)</p>
+</li>
+<li>
+<p>表达式的个数(Number of Expressions)</p>
+</li>
+<li>
+<p>运算对象的总数(Total Number of Operands)</p>
+</li>
+<li>
+<p>循环的个数(Number of Loops(for,while))</p>
+</li>
+<li>
+<p>抛出的异常个数(Number of Exception Thrown)</p>
+</li>
+<li>
+<p>引用的异常个数(Number of Exceptions Referenced)</p>
+</li>
+<li>
+<p>McCabes环复杂度(McCabes Cyclomatic Complexity)</p>
+<blockquote>
+<p>McCabes环复杂度是软件工程中用于衡量软件复杂度的一个指标，它通过测量程序中线性无关路径的数量来计算，可参见<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.chambers.com.au/glossary/mc_cabe_cyclomatic_complexity.php" >McCabe’s Cyclomatic Complexity</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+</li>
+</ul>
+
+        <h2 id="b-preprocessing"   >
+          <a href="#b-preprocessing" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#b-preprocessing"></a> B. Preprocessing</h2>
+      
+<p>Proprocessing consists of four steps.</p>
+<p>First. 清除源代码中所有注释、字符串常量</p>
+<p>Second. 根据代码段生成抽象语法树(AST)，工具为AntlrV4，这个工具在多平台多语言的条件下仍具有较高的适应性。</p>
+<p>Third. 使用正则表达式从AST中分别提取前述9个特征的计量值。</p>
+<p>Fourth. 通过NODEVISITOR类的帮助遍历AST来提取API调用。然后将这些API调用传递给下一步(Action Filter)，以过滤掉可能的非克隆的源代码对，从而提高CLCDSA的可伸缩性。</p>
+
+        <h2 id="c-action-filter-api-call-similarity"   >
+          <a href="#c-action-filter-api-call-similarity" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#c-action-filter-api-call-similarity"></a> C. Action Filter: API Call Similarity</h2>
+      
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">keepgogogo</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2022/03/08/CLCDSA%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">http://example.com/2022/03/08/CLCDSA%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/DNN/">DNN</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://example.com/tags/Cross-Language-Code-Clone/">Cross Language Code Clone</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2021/11/21/%E4%BA%92%E8%81%94%E7%BD%91-%E5%A4%A7%E8%B5%9B%E8%B0%83%E7%A0%94/"><span class="paginator-prev__text">互联网+赛事调研</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="toc-text">
            背景知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cross-language-code-clone-%E8%B7%A8%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E5%85%8B%E9%9A%86"><span class="toc-text">
            Cross Language Code Clone （跨语言代码克隆）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#abstract"><span class="toc-text">
            Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#introduction"><span class="toc-text">
@@ -113,4 +186,57 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
            单一语言代码克隆检测工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E8%AF%AD%E8%A8%80%E4%BB%A3%E7%A0%81%E5%85%8B%E9%9A%86%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7"><span class="toc-text">
            多语言代码克隆检测工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#clcminer"><span class="toc-text">
            CLCMiner</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#licca"><span class="toc-text">
-           LICCA</span></a></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/head.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">Life begins at the end of your comfort zone.</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/keepgogogo/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">11</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Copyright belongs to the author.</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
+           LICCA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#clcdsa-propose"><span class="toc-text">
+           CLCDSA propose</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#section-ii-clcdsa-designation"><span class="toc-text">
+           Section II CLCDSA designation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#a-feature-selection"><span class="toc-text">
+           A. Feature Selection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b-preprocessing"><span class="toc-text">
+           B. Preprocessing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-action-filter-api-call-similarity"><span class="toc-text">
+           C. Action Filter: API Call Similarity</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/head.jpg" alt="avatar"></div><p class="sidebar-ov-author__text">Life begins at the end of your comfort zone.</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/keepgogogo/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">7</div><div class="sidebar-ov-state-item__name">Archives</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Categories</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">12</div><div class="sidebar-ov-state-item__name">Tags</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Copyright belongs to the author.</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script type="text/x-mathjax-config">var mathjaxMhchem = '';
+var mathJaxTex = {
+  equationNumbers: {
+    autoNumber: 'AMS'
+  }
+};
+
+if (false) {
+  mathjaxMhchem = 'https://cdn.jsdelivr.net/npm/mathjax-mhchem@3.3.2/mhchem.min.js';
+  MathJax.Ajax.config.path['mhchem'] = mathjaxMhchem;
+
+  mathJaxTex.extensions = [mathjaxMhchem];
+} else {
+  mathJaxTex.extensions = ['AMSmath.js','AMSsymbols.js'];
+}
+
+MathJax.Hub.Config({
+  menuSettings: {
+    zoom: 'None'
+  },
+  showMathMenu: false,
+  jax: ['input/TeX','output/CommonHTML'],
+  extensions: ['tex2jax.js'],
+  TeX: mathJaxTex,
+  tex2jax: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  }
+});
+
+MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+  MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+    if (data.display) {
+      var next = data.script.nextSibling;
+      while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling; }
+      if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next); }
+    }
+  });
+});
+
+MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i = 0; i < all.length; i++) {
+    document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script></body></html>
